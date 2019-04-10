@@ -1,14 +1,13 @@
 # Dockerfile for swingbench
 # See www.dominicgiles.com/swingbench.html for further details
-# Updated to use oraclelinux:7-slim and reduce RUN statements
+# Updated to use openjdk:8-slim and reduce overall size
 
-FROM oraclelinux:7-slim
+FROM openjdk:8-slim
+# Dockerfile for swingbench
+# See www.dominicgiles.com/swingbench.html for further details
 
-RUN yum makecache fast \
-&& yum install -y java-1.8.0-openjdk-headless.x86_64, unzip \
-&& curl "https://bootstrap.pypa.io/get-pip.py" -o "get-pip.py" \
-&& python get-pip.py \
-&& pip install prettytable \
+RUN apt-get update \
+&& apt-get install -y curl \
 && mkdir app \
 && curl "http://www.dominicgiles.com/swingbench/swingbenchlatest.zip" -o app/swingbench.zip
 
