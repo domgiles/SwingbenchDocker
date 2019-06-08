@@ -7,7 +7,7 @@ FROM openjdk:8-slim
 # See www.dominicgiles.com/swingbench.html for further details
 
 RUN apt-get update \
-&& apt-get install -y curl \
+&& apt-get install -y curl zip \
 && mkdir app \
 && curl "http://www.dominicgiles.com/swingbench/swingbenchlatest.zip" -o app/swingbench.zip
 
